@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Context.DBUtil;
+import Utils.DBUtil;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -25,7 +25,7 @@ public class CategoryDAO {
             list = new ArrayList<>();
             Connection con = db.getConnection();
             Statement stm = con.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT  FROM dbo.Category");
+            ResultSet rs = stm.executeQuery("SELECT Id, CategoryName FROM dbo.Category");
             while (rs.next()) {
                 int id = rs.getInt(1);
                 String name = rs.getString(2);
@@ -38,4 +38,11 @@ public class CategoryDAO {
         }
         return list;
     }
+//    public static void main(String[] args) {
+//        CategoryDAO dao = new CategoryDAO();
+//        List<Category> list = dao.listAllCategory();
+//        for (Category o : list) {
+//            System.out.println(o);
+//        }
+//    }
 }
