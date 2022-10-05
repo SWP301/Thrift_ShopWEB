@@ -7,6 +7,8 @@ package Utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,7 +17,7 @@ import java.sql.DriverManager;
 public class DBUtil {
         private String DATABASENAME = "SWPShop";
         private String USER = "sa";
-        private String PASSWORD ="123456";
+        private String PASSWORD ="12345";
         
     public Connection getConnection() throws Exception{
         
@@ -27,4 +29,10 @@ public class DBUtil {
         con = DriverManager.getConnection(url);
         return con;
     }
+//    public static void main(String[] args) {
+//            try {
+//                System.out.println(new DBUtil().getConnection());
+//            } catch (Exception ex) {
+//            }
+//    }
 }
