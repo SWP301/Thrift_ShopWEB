@@ -1,4 +1,4 @@
-<%-- 
+<%-- x
     Document   : home
     Created on : Oct 14, 2022, 5:04:47 PM
     Author     : Le Nguyen Nhat Minh
@@ -81,7 +81,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-3 col-6 text-right">
+<!--                <div class="col-lg-3 col-6 text-right">
                     <a href="" class="btn border">
                         <i class="fas fa-heart text-primary"></i>
                         <span class="badge">0</span>
@@ -90,37 +90,15 @@
                         <i class="fas fa-shopping-cart text-primary"></i>
                         <span class="badge">0</span>
                     </a>
-                </div>
+                </div>-->
             </div>
         </div>
         <!-- Topbar End -->
 
-
         <!-- Navbar Start -->
         <div class="container-fluid mb-5">
             <div class="row border-top px-xl-5">
-                <div class="col-lg-3 d-none d-lg-block">
-                    <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                        <h6 class="m-0">Categories</h6>
-                        <i class="fa fa-angle-down text-dark"></i>
-                    </a>
-                    <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
-                        <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link" data-toggle="dropdown">Dresses <i class="fa fa-angle-down float-right mt-1"></i></a>
-                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                    <a href="" class="dropdown-item">Men's Dresses</a>
-                                    <a href="" class="dropdown-item">Women's Dresses</a>
-                                    <a href="" class="dropdown-item">Baby's Dresses</a>
-                                </div>
-                            </div>
-                            <c:forEach items="${listCategory}" var="cat">
-                                <a href="category?categoryID=${cat.categoryID}" class="nav-item nav-link" ${tag == cat.categoryID ? "active":""}>${cat.categoryName}</a>
-                            </c:forEach>
-                        </div>
-                    </nav>
-                </div>
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                         <a href="" class="text-decoration-none d-block d-lg-none">
                             <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
@@ -133,14 +111,14 @@
                                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
                                 <a href="shop.jsp" class="nav-item nav-link">Shop</a>
                                 <a href="detail.jsp" class="nav-item nav-link">Shop Detail</a>
-                                <div class="nav-item dropdown">
+<!--                                <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <a href="cart.html" class="dropdown-item">Shopping Cart</a>
                                         <a href="checkout.html" class="dropdown-item">Checkout</a>
                                     </div>
                                 </div>
-                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                                <a href="contact.html" class="nav-item nav-link">Contact</a>-->
                             </div>
                             <div class="navbar-nav ml-auto py-0">
                                 <a href="login.jsp" class="nav-item nav-link">Login</a>
@@ -187,94 +165,56 @@
         </div>
         <!-- Navbar End -->
 
-
-        <!-- Featured Start -->
-        <div class="container-fluid pt-5">
-            <div class="row px-xl-5 pb-3">
-                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                    <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
-                        <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
-                        <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                    <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
-                        <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
-                        <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                    <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
-                        <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
-                        <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                    <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
-                        <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
-                        <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Featured End -->
-
-
         <!-- Categories Start -->
         <div class="container-fluid pt-5">
             <div class="row px-xl-5 pb-3">
-                <div class="col-lg-4 col-md-6 pb-1">
+                <div class="col-lg-2 col-md-4 pb-1">
                     <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                        <p class="text-right">15 Products</p>
-                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                            <img class="img-fluid" src="img/cat-1.jpg" alt="">
+                        <!--                        <p class="text-right">15 Products</p>-->
+                        <a href="category?categoryID=1" class="cat-img position-relative overflow-hidden mb-3">
+                            <img class="img-fluid" src="img/cat1.jpg" alt="">
                         </a>
-                        <h5 class="font-weight-semi-bold m-0">Men's dresses</h5>
+                        <h5 class="font-weight-semi-bold m-0">Electronics</h5>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 pb-1">
+                <div class="col-lg-2 col-md-4 pb-1">
                     <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                        <p class="text-right">15 Products</p>
-                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                            <img class="img-fluid" src="img/cat-2.jpg" alt="">
+                        <a href="category?categoryID=2" class="cat-img position-relative overflow-hidden mb-3">
+                            <img class="img-fluid" src="img/cat2.jpg" alt="">
                         </a>
-                        <h5 class="font-weight-semi-bold m-0">Women's dresses</h5>
+                        <h5 class="font-weight-semi-bold m-0">Fashions</h5>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 pb-1">
+                <div class="col-lg-2 col-md-4 pb-1">
                     <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                        <p class="text-right">15 Products</p>
-                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                            <img class="img-fluid" src="img/cat-3.jpg" alt="">
+                        <a href="category?categoryID=3" class="cat-img position-relative overflow-hidden mb-3">
+                            <img class="img-fluid" src="img/cat3.jpg" alt="">
                         </a>
-                        <h5 class="font-weight-semi-bold m-0">Baby's dresses</h5>
+                        <h5 class="font-weight-semi-bold m-0">Bike</h5>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 pb-1">
+                <div class="col-lg-2 col-md-4 pb-1">
                     <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                        <p class="text-right">15 Products</p>
-                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                            <img class="img-fluid" src="img/cat-4.jpg" alt="">
+                        <a href="category?categoryID=4" class="cat-img position-relative overflow-hidden mb-3">
+                            <img class="img-fluid" src="img/cat4.jpg" alt="">
                         </a>
-                        <h5 class="font-weight-semi-bold m-0">Accerssories</h5>
+                        <h5 class="font-weight-semi-bold m-0">Books</h5>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 pb-1">
+                <div class="col-lg-2 col-md-4 pb-1">
                     <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                        <p class="text-right">15 Products</p>
-                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                            <img class="img-fluid" src="img/cat-5.jpg" alt="">
+                        <a href="category?categoryID=5" class="cat-img position-relative overflow-hidden mb-3">
+                            <img class="img-fluid" src="img/cat5.jpg" alt="">
                         </a>
-                        <h5 class="font-weight-semi-bold m-0">Bags</h5>
+                        <h5 class="font-weight-semi-bold m-0">Hobbies</h5>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 pb-1">
+                <div class="col-lg-2 col-md-4 pb-1">
                     <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                        <p class="text-right">15 Products</p>
-                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                            <img class="img-fluid" src="img/cat-6.jpg" alt="">
+                        <a href="category?categoryID=6" class="cat-img position-relative overflow-hidden mb-3">
+                            <img class="img-fluid" src="img/cat6.jpg" alt="">
                         </a>
-                        <h5 class="font-weight-semi-bold m-0">Shoes</h5>
+                        <h5 class="font-weight-semi-bold m-0">Stationery</h5>
                     </div>
                 </div>
             </div>
@@ -284,7 +224,7 @@
         <!-- Products Start -->
         <div class="container-fluid pt-5">
             <div class="text-center mb-4">
-                <h2 class="section-title px-5"><span class="px-2">Tranity Products</span></h2>
+                <h2 class="section-title px-5"><span class="px-2">All Products</span></h2>
             </div>
             <div class="row px-xl-5 pb-3">
                 <c:forEach var="pro" items="${listProduct}" >
@@ -309,29 +249,6 @@
             </div>
         </div>
         <!-- Products End -->
-
-
-        <!-- Subscribe Start -->
-        <div class="container-fluid bg-secondary my-5">
-            <div class="row justify-content-md-center py-5 px-xl-5">
-                <div class="col-md-6 col-12 py-5">
-                    <div class="text-center mb-2 pb-2">
-                        <h2 class="section-title px-5 mb-3"><span class="bg-secondary px-2">Stay Updated</span></h2>
-                        <p>Amet lorem at rebum amet dolores. Elitr lorem dolor sed amet diam labore at justo ipsum eirmod duo labore labore.</p>
-                    </div>
-                    <form action="">
-                        <div class="input-group">
-                            <input type="text" class="form-control border-white p-4" placeholder="Email Goes Here">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary px-4">Subscribe</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- Subscribe End -->
-
 
         <!-- Products Start -->
         <div class="container-fluid pt-5">

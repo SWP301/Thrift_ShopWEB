@@ -5,23 +5,18 @@
  */
 package controllers;
 
-import dao.CategoryDAO;
-import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Category;
-import models.Product;
 
 /**
  *
  * @author Le Nguyen Nhat Minh
  */
-public class CategoryController extends HttpServlet {
+public class MainController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,31 +27,29 @@ public class CategoryController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private static final String SUCCESS = "homepage.jsp";
     private static final String ERROR = "error.jsp";
+    private static final String HOME = "Home";
+    private static final String HOME_CONTROLLER = "HomeController";
+    private static final String DETAIL = "Detail";
+    private static final String DETAIL_CONTROLLER = "DetailController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            String categoryID = request.getParameter("categoryID");
-            ProductDAO pd = new ProductDAO();
-            CategoryDAO cd = new CategoryDAO();
-            List<Product> listProduct = pd.getProductByCID(categoryID);
-            List<Category> listCategory = cd.listAllCategory();
-            List<Product> listNew = pd.listNew();
-            request.setAttribute("listCategory", listCategory);
-            request.setAttribute("listProduct", listProduct);
-            request.setAttribute("listNew", listNew);
-            request.setAttribute("tag", categoryID);
-            url = SUCCESS;
-
+            String action = request.getParameter("action");
+            if (HOME.equals(action)) {
+                url = HOME_CONTROLLER;
+            } else if (DETAIL.equals(action)) {
+                url = DETAIL_CONTROLLER;
+            }
         } catch (Exception e) {
+            log("Error at MainController " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
-
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

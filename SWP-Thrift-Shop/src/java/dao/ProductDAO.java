@@ -15,12 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Product;
 
-/**
- *
- * @author buile
- */
+
 public class ProductDAO {
-    
+
     public List<Product> listAll() {
         List<Product> list = null;
         DBUtil db = new DBUtil();
@@ -48,7 +45,7 @@ public class ProductDAO {
         }
         return list;
     }
-    
+
     public List<Product> listNew() {
         List<Product> list = null;
         DBUtil db = new DBUtil();
@@ -76,7 +73,7 @@ public class ProductDAO {
         }
         return list;
     }
-    
+
     public List<Product> getProductByCID(String categoryID) {
         List<Product> list = null;
         DBUtil db = new DBUtil();
@@ -106,6 +103,32 @@ public class ProductDAO {
         }
         return list;
     }
+
+    public int countProductByCID(String categoryID) {
+        DBUtil db = new DBUtil();
+        int num = 0;
+        String query = "SELECT COUNT(Id)\n"
+                + "FROM Product\n"
+                + "WHERE CategoryID = ?";
+        try {
+            Connection con = db.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, categoryID);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                num = rs.getInt(1);
+            }
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return num;
+    }
+//    public static void main(String[] args) {
+//        ProductDAO pd = new ProductDAO();
+//        int num = pd.countProductByCID("3");
+//        System.out.println(num);
+//    }
     public Product getProductbyID(String pid) {
         DBUtil db = new DBUtil();
         String query = "SELECT ProductID,ProductName,ProductPrice,ProductQuantity, \n"
@@ -128,13 +151,7 @@ public class ProductDAO {
         }
         return null;
     }
-//    public static void main(String[] args) {
-//        ProductDAO pd = new ProductDAO();
-//        List<Product> list = pd.getProductByCID("1");
-//        for (Product o : list) {
-//            System.out.println(o);
-//        }
-//    }
+
 
     public List<Product> listHome() {
         List<Product> list = null;
@@ -162,7 +179,7 @@ public class ProductDAO {
         }
         return list;
     }
-    
+
     public int minPrice() {
         int price = 0;
         DBUtil db = new DBUtil();
@@ -179,7 +196,7 @@ public class ProductDAO {
         }
         return price;
     }
-    
+
     public int maxPrice() {
         int price = 0;
         DBUtil db = new DBUtil();
@@ -265,8 +282,6 @@ public class ProductDAO {
         }
         return list;
     }
-    
-    
 
 //    public static void main(String[] args) {
 //        ProductDAO dao = new ProductDAO();
