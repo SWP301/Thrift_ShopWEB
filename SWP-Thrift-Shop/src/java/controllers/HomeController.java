@@ -46,7 +46,7 @@ public class HomeController extends HttpServlet {
         request.setAttribute("listProduct", listProduct);
         request.setAttribute("listCategory", listCategory);
         request.setAttribute("listNew", listNew);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("homepage.jsp").forward(request, response);
         
     }
 
