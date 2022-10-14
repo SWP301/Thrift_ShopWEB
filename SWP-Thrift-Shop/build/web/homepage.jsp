@@ -221,6 +221,35 @@
         </div>
         <!-- Categories End -->
 
+        <!-- New Arrival Start -->
+        <div class="container-fluid pt-5">
+            <div class="text-center mb-4">
+                <h2 class="section-title px-5"><span class="px-2">Just Arrived</span></h2>
+            </div>
+
+            <div class="row px-xl-5 pb-3">
+                <c:forEach var="pro" items="${listNew}" >
+                    <div class="col-lg-2 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src="<c:url value="img/${pro.imageLink}" />"/>
+                            </div>
+                            <div class="card-body border-left border-right text-left p-0 pt-4 pb-3">
+                                <h6 class=""><a href="detail?pid=${pro.productID}">${pro.productName}</a></h6>
+                                <div class="d-flex justify-content-lg-start ">
+                                    <h6 class="text-danger"> ${pro.productPrice}$</h6>
+                                </div>
+                            </div>
+<!--                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Check out</a>
+                            </div>-->
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+        <!-- New Arrival End -->
         <!-- Products Start -->
         <div class="container-fluid pt-5">
             <div class="text-center mb-4">
@@ -228,51 +257,21 @@
             </div>
             <div class="row px-xl-5 pb-3">
                 <c:forEach var="pro" items="${listProduct}" >
-                    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="col-lg-2 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img class="img-fluid w-100" src="<c:url value="img/${pro.imageLink}" />"/>
                             </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3"><a href="">${pro.productName}</a></h6>
-                                <div class="d-flex justify-content-center">
-                                    <h6> ${pro.productPrice}$</h6>
+                            <div class="card-body border-left border-right text-left p-0 pt-4 pb-3">
+                                <h6 class=""><a href="detail?pid=${pro.productID}">${pro.productName}</a></h6>
+                                <div class="d-flex justify-content-lg-start ">
+                                    <h6 class="text-danger"> ${pro.productPrice}$</h6>
                                 </div>
                             </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="detail?pid=${pro.productID}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Check out</a>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
-        <!-- Products End -->
-
-        <!-- Products Start -->
-        <div class="container-fluid pt-5">
-            <div class="text-center mb-4">
-                <h2 class="section-title px-5"><span class="px-2">Just Arrived</span></h2>
-            </div>
-
-            <div class="row px-xl-5 pb-3">
-                <c:forEach items="${listNew}" var="pro">
-                    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="<c:url value="img/${pro.imageLink}"/>" >
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3">${pro.productName}</h6>
-                                <div class="d-flex justify-content-center">
-                                    <h6>${pro.productPrice}</h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
+<!--                            <div class="card-footer d-flex justify-content-between bg-light border">
                                 <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
                                 <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Check out</a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </c:forEach>
@@ -280,42 +279,7 @@
         </div>
         <!-- Products End -->
 
-
-        <!-- Vendor Start -->
-        <div class="container-fluid py-5">
-            <div class="row px-xl-5">
-                <div class="col">
-                    <div class="owl-carousel vendor-carousel">
-                        <div class="vendor-item border p-4">
-                            <img src="img/vendor-1.jpg" alt="">
-                        </div>
-                        <div class="vendor-item border p-4">
-                            <img src="img/vendor-2.jpg" alt="">
-                        </div>
-                        <div class="vendor-item border p-4">
-                            <img src="img/vendor-3.jpg" alt="">
-                        </div>
-                        <div class="vendor-item border p-4">
-                            <img src="img/vendor-4.jpg" alt="">
-                        </div>
-                        <div class="vendor-item border p-4">
-                            <img src="img/vendor-5.jpg" alt="">
-                        </div>
-                        <div class="vendor-item border p-4">
-                            <img src="img/vendor-6.jpg" alt="">
-                        </div>
-                        <div class="vendor-item border p-4">
-                            <img src="img/vendor-7.jpg" alt="">
-                        </div>
-                        <div class="vendor-item border p-4">
-                            <img src="img/vendor-8.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Vendor End -->
-
+        
 
         <!-- Footer Start -->
         <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
