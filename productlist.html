@@ -15,10 +15,6 @@
     />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -32,6 +28,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
       rel="stylesheet"
     />
+
     <style>
       body {
         color: #566787;
@@ -295,9 +292,11 @@
               <div class="table-title">
                 <div class="row">
                   <div class="col-sm-6">
-                    <h2>User <b>Management</b></h2>
+                      <h2>Product <b>Management</b></h2>
                   </div>
-                  <div class="col-sm-6 d-flex justify-content-end">
+                  <div
+                    class="col-sm-6 d-flex justify-content-end"
+                  >
                     <form>
                       <input class="text-dark" type="text" />
                       <button
@@ -313,13 +312,15 @@
                   </div>
                 </div>
               </div>
+
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Username</th>
-                    <th>Name</th>
-                    <th>Role</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>User</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -327,23 +328,41 @@
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td><a href="profilemanage.html"> test1</a></td>
-                    <td>Nguyen Van A</td>
-                    <td>Admin</td>
-                    <td class="text-success">Active</td>
                     <td>
-                      <!-- <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-check"></i></a> -->
+                      <img
+                        src="https://cdn1.viettelstore.vn/images/Product/ProductImage/medium/iPhone_14_Pro_Max-Pur1.jpg"
+                        style="height: 90px; width: 80px"
+                      />
+                    </td>
+                    <td>Iphone 14 Promax</td>
+                    <td>Electronics</td>
+                    <td>test1</td>
+                    <td>Hidden</td>
+                    <td>
+                      <a
+                        href="productCRUD.html"
+                        class="settings"
+                        title="Settings"
+                        data-toggle="tooltip"
+                        ><i class="fa-solid fa-gear"></i
+                      ></a>
                     </td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td><a href="profilemanage.html"> test2</a></td>
-                    <td>Nguyen Van B</td>
-                    <td>User</td>
-                    <td class="text-success">Active</td>
+                    <td>
+                      <img
+                        src="https://cdn1.viettelstore.vn/images/Product/ProductImage/medium/iPhone_14_Pro_Max-Pur1.jpg"
+                        style="height: 90px; width: 80px"
+                      />
+                    </td>
+                    <td>Iphone 14 Promax</td>
+                    <td>Electronics</td>
+                    <td>test2</td>
+                    <td>View</td>
                     <td>
                       <a
-                        href="profilemanage.html"
+                        href="productCRUD.html"
                         class="settings"
                         title="Settings"
                         data-toggle="tooltip"
@@ -353,13 +372,41 @@
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td><a href="profilemanage.html"> test3</a></td>
-                    <td>Nguyen Van C</td>
-                    <td>User</td>
-                    <td class="text-danger">Suspended</td>
+                    <td>
+                      <img
+                        src="https://cdn1.viettelstore.vn/images/Product/ProductImage/medium/iPhone_14_Pro_Max-Pur1.jpg"
+                        style="height: 90px; width: 80px"
+                      />
+                    </td>
+                    <td>Iphone 14 Promax</td>
+                    <td>Electronics</td>
+                    <td>test3</td>
+                    <td>View</td>
                     <td>
                       <a
-                        href="profilemanage.html"
+                        href="productCRUD.html"
+                        class="settings"
+                        title="Settings"
+                        data-toggle="tooltip"
+                        ><i class="fa-solid fa-gear"></i
+                      ></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>
+                      <img
+                        src="https://cdn1.viettelstore.vn/images/Product/ProductImage/medium/iPhone_14_Pro_Max-Pur1.jpg"
+                        style="height: 90px; width: 80px"
+                      />
+                    </td>
+                    <td>Iphone 14 Promax</td>
+                    <td>Electronics</td>
+                    <td>test4</td>
+                    <td>View</td>
+                    <td>
+                      <a
+                        href="productCRUD.html"
                         class="settings"
                         title="Settings"
                         data-toggle="tooltip"

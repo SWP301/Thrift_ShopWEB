@@ -263,6 +263,7 @@
         font-size: 20px;
       }
     </style>
+
   </head>
   <body>
     <div class="row">
@@ -294,10 +295,12 @@
             <div class="table-wrapper">
               <div class="table-title">
                 <div class="row">
-                  <div class="col-sm-6">
-                    <h2>User <b>Management</b></h2>
+                  <div class="col-sm-6 d-flex">
+                      <h2>Order <b>Management</b></h2>
                   </div>
-                  <div class="col-sm-6 d-flex justify-content-end">
+                  <div
+                    class="col-sm-6 d-flex justify-content-end"
+                  >
                     <form>
                       <input class="text-dark" type="text" />
                       <button
@@ -318,32 +321,41 @@
                   <tr>
                     <th>#</th>
                     <th>Username</th>
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Status</th>
+                    <th>Product Name</th>
+                    <th>Order Date</th>
+                    <th>Ship Address</th>
+                    <th>Total Price</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td><a href="profilemanage.html"> test1</a></td>
-                    <td>Nguyen Van A</td>
-                    <td>Admin</td>
-                    <td class="text-success">Active</td>
+                    <td>test1</td>
+                    <td>Iphone 14 Promax</td>
+                    <td>Electronics</td>
+                    <td>HCM</td>
+                    <td>$1099</td>
                     <td>
-                      <!-- <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-check"></i></a> -->
+                      <a
+                        href="orderCRUD.html"
+                        class="settings"
+                        title="Settings"
+                        data-toggle="tooltip"
+                        ><i class="fa-solid fa-gear"></i
+                      ></a>
                     </td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td><a href="profilemanage.html"> test2</a></td>
-                    <td>Nguyen Van B</td>
-                    <td>User</td>
-                    <td class="text-success">Active</td>
+                    <td>test2</td>
+                    <td>Iphone 14 Promax</td>
+                    <td>Electronics</td>
+                    <td>HCM</td>
+                    <td>$1099</td>
                     <td>
                       <a
-                        href="profilemanage.html"
+                        href="orderCRUD.html"
                         class="settings"
                         title="Settings"
                         data-toggle="tooltip"
@@ -353,13 +365,31 @@
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td><a href="profilemanage.html"> test3</a></td>
-                    <td>Nguyen Van C</td>
-                    <td>User</td>
-                    <td class="text-danger">Suspended</td>
+                    <td>test3</td>
+                    <td>Iphone 14 Promax</td>
+                    <td>Electronics</td>
+                    <td>HCM</td>
+                    <td>$1099</td>
                     <td>
                       <a
-                        href="profilemanage.html"
+                        href="orderCRUD.html"
+                        class="settings"
+                        title="Settings"
+                        data-toggle="tooltip"
+                        ><i class="fa-solid fa-gear"></i
+                      ></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>test4</td>
+                    <td>Iphone 14 Promax</td>
+                    <td>Electronics</td>
+                    <td>HCM</td>
+                    <td>$1099</td>
+                    <td>
+                      <a
+                        href="orderCRUD.html"
                         class="settings"
                         title="Settings"
                         data-toggle="tooltip"
