@@ -111,6 +111,10 @@
                                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
                                 <a href="shop.jsp" class="nav-item nav-link">Shop</a>
                                 <a href="detail.jsp" class="nav-item nav-link">Shop Detail</a>
+                                <form action ="MainController" method ="POST">
+                                    <a href="AdminController" class="nav-item nav-link">ADMIN PAGE</a>
+                                </form>
+                                
 <!--                                <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">

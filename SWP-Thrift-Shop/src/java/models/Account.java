@@ -18,6 +18,7 @@ public class Account {
     private boolean status;
     private String phone;
     private String address;
+    private int roleNum;
     Role role = new Role();
 
     public Account(int accountID, String userName, String fullName, String password, boolean status, String phone, String address, Role role) {
@@ -30,6 +31,25 @@ public class Account {
         this.address = address;
         this.role = role;
     }
+    public Account(int accountID, String userName, String fullName, String password, boolean status, String phone, String address, int role) {
+        this.accountID = accountID;
+        this.userName = userName;
+        this.fullName = fullName;
+        this.password = password;
+        this.status = status;
+        this.phone = phone;
+        this.address = address;
+        this.roleNum=role;
+    }
+    //use for update
+    public Account(String userName, String fullName, String password, String phone, String address) {
+        this.userName = userName;
+        this.fullName = fullName;
+        this.password = password;
+        this.phone = phone;
+        this.address = address;
+    }
+    
 
     public Account() {
     }
