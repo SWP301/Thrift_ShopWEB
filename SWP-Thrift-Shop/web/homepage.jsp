@@ -108,7 +108,7 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="index.jsp" class="nav-item nav-link active">Home</a>
+                                <a href="/home" class="nav-item nav-link active">Home</a>
                                 <a href="shop.jsp" class="nav-item nav-link">Shop</a>
                                 <a href="detail.jsp" class="nav-item nav-link">Shop Detail</a>
                                 <form action ="MainController" method ="POST">
