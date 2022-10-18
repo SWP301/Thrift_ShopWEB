@@ -41,6 +41,10 @@
                                     </div>
                                     <div class="form-outline form-white mb-4">
 
+                                        <input type="email" name="email" required="" class="form-control form-control-lg" placeholder="Email" />
+                                    </div>
+                                    <div class="form-outline form-white mb-4">
+
                                         <input type="password" name="password" required="" class="form-control form-control-lg" placeholder="Password" />
                                     </div>
                                     <div class="form-outline form-white mb-4">
