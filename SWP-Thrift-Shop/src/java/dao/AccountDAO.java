@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Account;
 import models.Role;
+import models.UserDTO;
 
 import utils.DBUtil;
 
@@ -35,6 +36,13 @@ public class AccountDAO {
                                      + "FROM Account ORDER BY Account.userName DESC";
     private static final String CHECK_LOGIN = "SELECT Account.Id,UserName, FullName,Password, Status,Phone ,Address, RoleID \n"
                                      + "WHERE UserName=? AND Password=?";
+    private static final String LOGIN = "SELECT Account.Id, FullName, Email,Phone, Address, RoleName FROM Account join Role on [Account].RoleID = [Role].ID WHERE UserName = ? AND Password = ? AND Status= 1";
+    private static final String CHECK_USERNAME = "SELECT UserName FROM Account WHERE UserName = ?";  
+    private static final String INSERT = "INSERT INTO Account(UserName, FullName, Email,Password, Status, Phone, Address, RoleID) \n" +
+                                        "VALUES(?,?,?,?,?,?,?,?)";
+    private static final String CHANGE_PASSWORD = "UPDATE Account SET password=? WHERE userName=?";
+    private static final String UPDATE_ACCOUNT = "UPDATE Account SET fullName=?,phone=?,address=? WHERE userName=?";
+    private static final String CHECK_PASSWORD = "SELECT Password FROM Account WHERE UserName = ? AND Password = ?";
     
     public List<Account> listAll() {
         List<Account> list = null;
@@ -168,5 +176,194 @@ public class AccountDAO {
             if(conn!=null) conn.close();
         }
         return act;
+    }
+     
+     public UserDTO checkLoginV2 (String username, String password) throws SQLException {
+        UserDTO user = null;
+        Connection conn = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        DBUtil db = new DBUtil();
+        try {
+            conn = db.getConnection();
+            if(conn != null) {
+                pst = conn.prepareStatement(LOGIN);
+                pst.setString(1, username);
+                pst.setString(2, password);
+                rs = pst.executeQuery();
+                if(rs.next()) {
+                   int id = rs.getInt("Id");
+                   String fullName = rs.getString("FullName");
+                   String email = rs.getString("Email");
+                   String phone = rs.getString("Phone");
+                   String address = rs.getString("Address");
+                   String roleName = rs.getString("RoleName");
+                   user = new UserDTO(id, username, fullName, email,password, true, phone, address, roleName);
+                }
+           }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if(conn != null) {
+                conn.close();
+            }
+        }
+        return user;
+    }
+    
+    public boolean insert (UserDTO user) throws ClassNotFoundException, SQLException, Exception {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement psm = null;
+        DBUtil db = new DBUtil();
+        try {
+            conn = db.getConnection();
+            if (conn != null) {
+                psm = conn.prepareStatement(INSERT);
+                psm.setString(1, user.getUserName());
+                psm.setString(2, user.getFullName());
+                psm.setString(3, user.getEmail());
+                psm.setString(4, user.getPassword());
+                psm.setBoolean(5, true);
+                psm.setString(6, user.getPhone());
+                psm.setString(7, user.getAddress());
+                psm.setInt(8, 2);
+                check = psm.executeUpdate() > 0 ? true : false;
+            }
+        } finally {
+            if (psm != null) {
+                psm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
+    
+    public boolean checkUserName(String userName) throws SQLException {
+//        UserDTO user = null;
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        DBUtil db = new DBUtil();
+        try {
+            conn = db.getConnection();
+            if (conn != null) {
+                pst = conn.prepareStatement(CHECK_USERNAME);
+                pst.setString(1, userName);
+                rs = pst.executeQuery();
+                if (rs.next()) {
+                    check = true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (rs != null) {
+                rs.close();
+            }
+        }
+        return check;
+    }
+    
+    public boolean update(UserDTO user) throws SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement psm = null;
+        DBUtil db = new DBUtil();
+        try {
+            conn = db.getConnection();
+            if (conn != null) {
+                psm = conn.prepareStatement(UPDATE_ACCOUNT);
+                psm.setString(1, user.getFullName());
+                psm.setString(2, user.getPhone());
+                psm.setString(3, user.getAddress());
+                psm.setString(4, user.getUserName());
+                check = psm.executeUpdate() > 0 ? true : false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (psm != null) {
+                psm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
+    
+    public boolean changePassword(String password, String userName) throws SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement psm = null;
+        DBUtil db = new DBUtil();
+        try {
+            conn = db.getConnection();
+            if (conn != null) {
+                psm = conn.prepareStatement(CHANGE_PASSWORD);
+                psm.setString(1, password);
+                psm.setString(2, userName);
+                check = psm.executeUpdate() > 0 ? true : false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (psm != null) {
+                psm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
+    
+    public boolean checkPassword(String userName, String password) throws SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        DBUtil db = new DBUtil();
+        try {
+            conn = db.getConnection();
+            if (conn != null) {
+                pst = conn.prepareStatement(CHECK_PASSWORD);
+                pst.setString(1, userName);
+                pst.setString(2, password);
+                rs = pst.executeQuery();
+                if (rs.next()) {
+                    check = true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (rs != null) {
+                rs.close();
+            }
+        }
+        return check;
     }
 }
