@@ -11,7 +11,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>ThriftShop</title>
+        <title>EShopper - Bootstrap Shop Template</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free HTML Templates" name="keywords">
         <meta content="Free HTML Templates" name="description">
@@ -235,7 +235,7 @@
                                 <img class="img-fluid w-100" src="<c:url value="img/${pro.imageLink}" />"/>
                             </div>
                             <div class="card-body border-left border-right text-left p-0 pt-4 pb-3">
-                                <h6 class=""><a href="detail?pid=${pro.productID}" class="text-dark">${pro.productName}</a></h6>
+                                <h6 class=""><a href="detail?pid=${pro.productID}">${pro.productName}</a></h6>
                                 <div class="d-flex justify-content-lg-start ">
                                     <h6 class="text-danger"> ${pro.productPrice}$</h6>
                                 </div>
@@ -263,7 +263,7 @@
                                 <img class="img-fluid w-100" src="<c:url value="img/${pro.imageLink}" />"/>
                             </div>
                             <div class="card-body border-left border-right text-left p-0 pt-4 pb-3">
-                                <h6><a href="detail?pid=${pro.productID}" class="text-dark">${pro.productName}</a></h6>
+                                <h6 class=""><a href="detail?pid=${pro.productID}">${pro.productName}</a></h6>
                                 <div class="d-flex justify-content-lg-start ">
                                     <h6 class="text-danger"> ${pro.productPrice}$</h6>
                                 </div>
