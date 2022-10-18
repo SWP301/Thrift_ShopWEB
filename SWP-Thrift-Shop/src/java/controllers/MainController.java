@@ -32,6 +32,8 @@ public class MainController extends HttpServlet {
     private static final String HOME_CONTROLLER = "HomeController";
     private static final String DETAIL = "Detail";
     private static final String DETAIL_CONTROLLER = "DetailController";
+    private static final String ADMIN = "Admin";
+    private static final String ADMIN_CONTROLLER = "AdminController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -43,6 +45,8 @@ public class MainController extends HttpServlet {
                 url = HOME_CONTROLLER;
             } else if (DETAIL.equals(action)) {
                 url = DETAIL_CONTROLLER;
+            }else if (ADMIN.equals(action)) {
+                url = ADMIN_CONTROLLER;
             }
         } catch (Exception e) {
             log("Error at MainController " + e.toString());
