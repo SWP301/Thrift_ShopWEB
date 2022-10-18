@@ -110,9 +110,8 @@
                             <div class="navbar-nav mr-auto py-0">
                                 <a href="/home" class="nav-item nav-link active">Home</a>
                                 <a href="shop.jsp" class="nav-item nav-link">Shop</a>
-                                <a href="detail.jsp" class="nav-item nav-link">Shop Detail</a>
                                 <form action ="MainController" method ="POST">
-                                    <a href="AdminController" class="nav-item nav-link">ADMIN PAGE</a>
+                                    <a href="AdminController" class="nav-item nav-link">Admin Page</a>
                                 </form>
                                 
 <!--                                <div class="nav-item dropdown">
@@ -133,7 +132,7 @@
                     <div id="header-carousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" style="height: 410px;">
-                                <img class="img-fluid" src="img/carousel-1.jpg" alt="Image">
+                                <img class="img-fluid" src="img/car.jpg" alt="Image">
                                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <div class="p-3" style="max-width: 700px;">
                                         <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
@@ -143,7 +142,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item" style="height: 410px;">
-                                <img class="img-fluid" src="img/carousel-2.jpg" alt="Image">
+                                <img class="img-fluid" src="img/caro.jpg" alt="Image">
                                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <div class="p-3" style="max-width: 700px;">
                                         <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
