@@ -152,8 +152,19 @@
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
-                            <a href="" class="nav-item nav-link">Login</a>
-                            <a href="" class="nav-item nav-link">Register</a>
+                            <c:if test="${sessionScope.LOGIN_USER != null}">
+                                <a href="userInfor.jsp" class="nav-item nav-link">${sessionScope.LOGIN_USER.fullName}</a>
+                                <c:url var="logoutLink" value="MainController" >
+                                    <c:param name="action" value="Logout"></c:param>
+                                </c:url>
+                                <a href="${logoutLink}" class="nav-item nav-link">Logout</a>
+                            </c:if>
+                            <c:if test="${sessionScope.LOGIN_USER == null}">
+                                <div class="navbar-nav ml-auto py-0">
+                                    <a href="login.jsp" class="nav-item nav-link">Login</a>
+                                    <a href="register.jsp" class="nav-item nav-link">Register</a>
+                                </div>
+                            </c:if>  
                         </div>
                     </div>
                 </nav>

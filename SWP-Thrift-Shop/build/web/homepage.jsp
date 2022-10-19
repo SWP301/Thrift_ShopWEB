@@ -108,27 +108,37 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="/home" class="nav-item nav-link active">Home</a>
+                                <a href="homepage.jsp" class="nav-item nav-link active">Home</a>
                                 <a href="shop.jsp" class="nav-item nav-link">Shop</a>
                                 <form action ="MainController" method ="POST">
                                     <a href="AdminController" class="nav-item nav-link">Admin Page</a>
                                 </form>
-                                
-<!--                                <div class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                                    <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                        <a href="checkout.html" class="dropdown-item">Checkout</a>
-                                    </div>
+
+                                <!--                                <div class="nav-item dropdown">
+                                                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                                                                    <div class="dropdown-menu rounded-0 m-0">
+                                                                        <a href="cart.html" class="dropdown-item">Shopping Cart</a>
+                                                                        <a href="checkout.html" class="dropdown-item">Checkout</a>
+                                                                    </div>
+                                                                </div>
+                                                                <a href="contact.html" class="nav-item nav-link">Contact</a>-->
+                            </div>
+                            <c:if test="${sessionScope.LOGIN_USER != null}">
+                                <a href="userInfor.jsp" class="nav-item nav-link">${sessionScope.LOGIN_USER.fullName}</a>
+                                <c:url var="logoutLink" value="MainController" >
+                                    <c:param name="action" value="Logout"></c:param>
+                                </c:url>
+                                <a href="${logoutLink}" class="nav-item nav-link">Logout</a>
+                            </c:if>
+                            <c:if test="${sessionScope.LOGIN_USER == null}">
+                                <div class="navbar-nav ml-auto py-0">
+                                    <a href="login.jsp" class="nav-item nav-link">Login</a>
+                                    <a href="register.jsp" class="nav-item nav-link">Register</a>
                                 </div>
-                                <a href="contact.html" class="nav-item nav-link">Contact</a>-->
-                            </div>
-                            <div class="navbar-nav ml-auto py-0">
-                                <a href="login.jsp" class="nav-item nav-link">Login</a>
-                                <a href="register.jsp" class="nav-item nav-link">Register</a>
-                            </div>
+                            </c:if>    
                         </div>
-                    </nav>
+                </div>
+</nav>
                     <div id="header-carousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" style="height: 410px;">
