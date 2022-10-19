@@ -43,9 +43,10 @@ public class HomeController extends HttpServlet {
         List<Product> listProduct = pd.listAll();
         List<Category> listCategory = cd.listAllCategory();
         List<Product> listNew = pd.listNew();
-        request.setAttribute("listProduct", listProduct);
-        request.setAttribute("listCategory", listCategory);
-        request.setAttribute("listNew", listNew);
+        HttpSession session = request.getSession();
+        session.setAttribute("listProduct", listProduct);
+        session.setAttribute("listCategory", listCategory);
+        session.setAttribute("listNew", listNew);
         request.getRequestDispatcher("homepage.jsp").forward(request, response);
         
     }

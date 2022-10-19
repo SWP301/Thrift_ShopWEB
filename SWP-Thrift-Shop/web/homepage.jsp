@@ -11,7 +11,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>EShopper - Bootstrap Shop Template</title>
+        <title>ThriftShop</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free HTML Templates" name="keywords">
         <meta content="Free HTML Templates" name="description">
@@ -38,13 +38,13 @@
         <div class="container-fluid">
             <div class="row bg-secondary py-2 px-xl-5">
                 <div class="col-lg-6 d-none d-lg-block">
-                    <div class="d-inline-flex align-items-center">
+<!--                    <div class="d-inline-flex align-items-center">
                         <a class="text-dark" href="">FAQs</a>
                         <span class="text-muted px-2">|</span>
                         <a class="text-dark" href="">Help</a>
                         <span class="text-muted px-2">|</span>
                         <a class="text-dark" href="">Support</a>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
@@ -145,9 +145,7 @@
                                 <img class="img-fluid" src="img/car.jpg" alt="Image">
                                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <div class="p-3" style="max-width: 700px;">
-                                        <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
-                                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
-                                        <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                                        <a href="shop.jsp" class="btn btn-light py-2 px-3">Shop Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -155,9 +153,9 @@
                                 <img class="img-fluid" src="img/caro.jpg" alt="Image">
                                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <div class="p-3" style="max-width: 700px;">
-                                        <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
-                                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Reasonable Price</h3>
-                                        <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+<!--                                        <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Reasonable Price</h3>-->
+                                        <a href="shop.jsp" class="btn btn-light py-2 px-3">Shop Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +246,7 @@
                                 <img class="img-fluid w-100" src="<c:url value="img/${pro.imageLink}" />"/>
                             </div>
                             <div class="card-body border-left border-right text-left p-0 pt-4 pb-3">
-                                <h6 class=""><a href="detail?pid=${pro.productID}">${pro.productName}</a></h6>
+                                <h6><a href="detail?pid=${pro.productID}" class="text-dark">${pro.productName}</a></h6>
                                 <div class="d-flex justify-content-lg-start ">
                                     <h6 class="text-danger"> ${pro.productPrice}$</h6>
                                 </div>
@@ -276,7 +274,7 @@
                                 <img class="img-fluid w-100" src="<c:url value="img/${pro.imageLink}" />"/>
                             </div>
                             <div class="card-body border-left border-right text-left p-0 pt-4 pb-3">
-                                <h6 class=""><a href="detail?pid=${pro.productID}">${pro.productName}</a></h6>
+                                <h6><a href="detail?pid=${pro.productID}" class="text-dark">${pro.productName}</a></h6>
                                 <div class="d-flex justify-content-lg-start ">
                                     <h6 class="text-danger"> ${pro.productPrice}$</h6>
                                 </div>
@@ -356,9 +354,6 @@
                         <a class="text-dark font-weight-semi-bold" href="https://htmlcodex.com">HTML Codex</a><br>
                         Distributed By <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
                     </p>
-                </div>
-                <div class="col-md-6 px-xl-0 text-center text-md-right">
-                    <img class="img-fluid" src="img/payments.png" alt="">
                 </div>
             </div>
         </div>

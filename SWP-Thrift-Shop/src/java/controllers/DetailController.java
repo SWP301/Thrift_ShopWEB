@@ -5,13 +5,16 @@
  */
 package controllers;
 
+import dao.CategoryDAO;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Category;
 import models.Product;
 
 /**
@@ -34,8 +37,15 @@ public class DetailController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String pid = request.getParameter("pid");
         ProductDAO pd = new ProductDAO();
+        CategoryDAO cd = new CategoryDAO();
         Product p = pd.getProductbyID(pid);
+        List<Category> listCategory = cd.listAllCategory();
+        List<Product> listNew = pd.listNew();
+        List<Product> listRelated = pd.getRelatedProduct(pid);
         request.setAttribute("detail", p);
+        request.setAttribute("listCategory", listCategory);
+        request.setAttribute("listNew", listNew);
+        request.setAttribute("listRelated", listRelated);
         request.getRequestDispatcher("detail.jsp").forward(request, response);
     }
 
