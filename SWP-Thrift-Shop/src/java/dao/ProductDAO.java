@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Product;
 
-
 public class ProductDAO {
 
     public List<Product> listAll() {
@@ -25,7 +24,7 @@ public class ProductDAO {
             list = new ArrayList<>();
             Connection con = db.getConnection();
             Statement stm = con.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT Product.Id,ProductName,"
+            ResultSet rs = stm.executeQuery("SELECT TOP(18) Product.Id,ProductName,"
                     + "ProductPrice,ImageLink\n"
                     + "FROM Product left join [Image] \n"
                     + "ON Product.Id = [Image].ProductID \n"
@@ -115,7 +114,7 @@ public class ProductDAO {
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, categoryID);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 num = rs.getInt(1);
             }
             con.close();
@@ -124,11 +123,7 @@ public class ProductDAO {
         }
         return num;
     }
-//    public static void main(String[] args) {
-//        ProductDAO pd = new ProductDAO();
-//        int num = pd.countProductByCID("3");
-//        System.out.println(num);
-//    }
+
     public Product getProductbyID(String pid) {
         DBUtil db = new DBUtil();
         String query = "SELECT ProductID,ProductName,ProductPrice,ProductQuantity, \n"
@@ -152,6 +147,43 @@ public class ProductDAO {
         return null;
     }
 
+    public List<Product> getRelatedProduct(String categoryID) {
+        List<Product> list = null;
+        DBUtil db = new DBUtil();
+        try {
+            list = new ArrayList<>();
+            Connection con = db.getConnection();
+            String sql = "SELECT TOP(6) Product.Id,ProductName,"
+                    + "ProductPrice, ImageLink, CategoryID\n"
+                    + "FROM Product left join [Image]\n"
+                    + "ON Product.Id = [Image].ProductID \n"
+                    + "WHERE CategoryID = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, categoryID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int productID = rs.getInt(1);
+                String productName = rs.getString(2);
+                int productPrice = rs.getInt(3);
+                String imageLink = rs.getString(4);
+                Product pro = new Product(productID, productName,
+                        productPrice, imageLink);
+                list.add(pro);
+            }
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+   
+    public static void main(String[] args) {
+        ProductDAO pd = new ProductDAO();
+        List<Product> list = pd.getRelatedProduct("1");
+        for (Product product : list) {
+            System.out.println(product);
+        }
+    }
 
     public List<Product> listHome() {
         List<Product> list = null;

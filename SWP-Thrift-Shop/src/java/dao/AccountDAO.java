@@ -36,6 +36,15 @@ public class AccountDAO {
             + "FROM Account join Role on [Account].RoleID = [Role].ID ORDER BY Account.userName DESC";
     private static final String CHECK_LOGIN = "SELECT Account.Id,UserName, FullName,Password, Status,Phone ,Address, RoleID \n"
                                      + "WHERE UserName=? AND Password=?";
+<<<<<<< HEAD
+    private static final String LOGIN = "SELECT Account.Id, FullName, Email,Phone, Address, RoleName FROM Account join Role on [Account].RoleID = [Role].ID WHERE UserName = ? AND Password = ? AND Status= 1";
+    private static final String CHECK_USERNAME = "SELECT UserName FROM Account WHERE UserName = ?";  
+    private static final String INSERT = "INSERT INTO Account(UserName, FullName, Email,Password, Status, Phone, Address, RoleID) \n" +
+                                        "VALUES(?,?,?,?,?,?,?,?)";
+    private static final String CHANGE_PASSWORD = "UPDATE Account SET password=? WHERE userName=?";
+    private static final String UPDATE_ACCOUNT = "UPDATE Account SET fullName=?,phone=?,address=? WHERE userName=?";
+    private static final String CHECK_PASSWORD = "SELECT Password FROM Account WHERE UserName = ? AND Password = ?";
+=======
     private static final String LOGIN = "SELECT Account.Id, FullName, Email,Phone, Address, RoleName "
             + "FROM Account join Role on [Account].RoleID = [Role].ID WHERE UserName = ? AND Password = ? AND Status= 1";
     private static final String CHECK_USERNAME = "SELECT UserName "
@@ -48,6 +57,7 @@ public class AccountDAO {
             + "SET fullName=?,email=?, phone=?,address=? WHERE userName=?";
     private static final String CHECK_PASSWORD = "SELECT Password "
             + "FROM Account WHERE UserName = ? AND Password = ?";
+>>>>>>> 6df1a22f3b1d884ba542288250588b156575aef2
     
     public List<UserDTO> listAll() {
         List<UserDTO> list = null;
@@ -296,10 +306,16 @@ public class AccountDAO {
             if (conn != null) {
                 psm = conn.prepareStatement(UPDATE_ACCOUNT);
                 psm.setString(1, user.getFullName());
+<<<<<<< HEAD
+                psm.setString(2, user.getPhone());
+                psm.setString(3, user.getAddress());
+                psm.setString(4, user.getUserName());
+=======
                 psm.setString(2, user.getEmail());
                 psm.setString(3, user.getPhone());
                 psm.setString(4, user.getAddress());
                 psm.setString(5, user.getUserName());
+>>>>>>> 6df1a22f3b1d884ba542288250588b156575aef2
                 check = psm.executeUpdate() > 0 ? true : false;
             }
         } catch (Exception e) {

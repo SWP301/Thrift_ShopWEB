@@ -3,6 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/D:/FPT%20University%20Materials/K5%20-%20Fall22/SWP391/main/SWP-Thrift-Shop/web/shop.jsp</file>
+            <file>file:/D:/FPT%20University%20Materials/K5%20-%20Fall22/SWP391/main/SWP-Thrift-Shop/web/homepage.jsp</file>
+=======
             <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/src/java/controllers/UpdateProfileController.java</file>
             <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/src/java/dao/AccountDAO.java</file>
             <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/src/java/controllers/AdminController.java</file>
@@ -10,6 +14,7 @@
             <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/src/java/controllers/LoginController.java</file>
             <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/web/user.jsp</file>
             <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/web/adminpage.jsp</file>
+>>>>>>> 6df1a22f3b1d884ba542288250588b156575aef2
         </group>
     </open-files>
 </project-private>

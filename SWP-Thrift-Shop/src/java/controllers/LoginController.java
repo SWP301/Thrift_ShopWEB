@@ -21,8 +21,13 @@ import models.UserDTO;
  */
 public class LoginController extends HttpServlet {
     private static final String ERROR = "login.jsp";
+<<<<<<< HEAD
+    private static final String ADMIN_PAGE = "admin.jsp";
+    private static final String USER_PAGE = "user.jsp";
+=======
     private static final String ADMIN_PAGE = "adminpage.jsp";
     private static final String USER_PAGE = "homepage.jsp";
+>>>>>>> 6df1a22f3b1d884ba542288250588b156575aef2
     private static final String SELL_PAGE = "seller.jsp";
     private static final String AD = "Admin";
     private static final String US = "User";
@@ -52,11 +57,21 @@ public class LoginController extends HttpServlet {
                     HttpSession session = request.getSession();
                     session.setAttribute("LOGIN_USER", user);
                     if(AD.equals(roleName)){
+<<<<<<< HEAD
+                        url = ADMIN_PAGE;
+                    } else if (US.equals(roleName)){
+                        url = USER_PAGE;
+                        
+                    } else if (SELLER.equals(roleName)){
+                        url = SELL_PAGE;
+                        
+=======
                         url = "AdminController";
                     } else if (US.equals(roleName)){
                         url = USER_PAGE;                        
                     } else if (SELLER.equals(roleName)){
                         url = SELL_PAGE;                        
+>>>>>>> 6df1a22f3b1d884ba542288250588b156575aef2
                     }   else {
                         request.setAttribute("ERROR", "Your role is not support");
                     }
