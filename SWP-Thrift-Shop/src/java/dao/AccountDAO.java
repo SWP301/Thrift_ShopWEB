@@ -32,20 +32,25 @@ public class AccountDAO {
             + "                         WHERE Id=?";
     private static final String CHECK_DUPLICATE =  "SELECT UserName, roleID "
                                             + "FROM Account WHERE Id=?";
-    private static final String List_ALL_ACCOUNT = "SELECT * \n"
-                                     + "FROM Account ORDER BY Account.userName DESC";
+    private static final String List_ALL_ACCOUNT = "SELECT * "
+            + "FROM Account join Role on [Account].RoleID = [Role].ID ORDER BY Account.userName DESC";
     private static final String CHECK_LOGIN = "SELECT Account.Id,UserName, FullName,Password, Status,Phone ,Address, RoleID \n"
                                      + "WHERE UserName=? AND Password=?";
-    private static final String LOGIN = "SELECT Account.Id, FullName, Email,Phone, Address, RoleName FROM Account join Role on [Account].RoleID = [Role].ID WHERE UserName = ? AND Password = ? AND Status= 1";
-    private static final String CHECK_USERNAME = "SELECT UserName FROM Account WHERE UserName = ?";  
+    private static final String LOGIN = "SELECT Account.Id, FullName, Email,Phone, Address, RoleName "
+            + "FROM Account join Role on [Account].RoleID = [Role].ID WHERE UserName = ? AND Password = ? AND Status= 1";
+    private static final String CHECK_USERNAME = "SELECT UserName "
+            + "FROM Account WHERE UserName = ?";  
     private static final String INSERT = "INSERT INTO Account(UserName, FullName, Email,Password, Status, Phone, Address, RoleID) \n" +
                                         "VALUES(?,?,?,?,?,?,?,?)";
-    private static final String CHANGE_PASSWORD = "UPDATE Account SET password=? WHERE userName=?";
-    private static final String UPDATE_ACCOUNT = "UPDATE Account SET fullName=?,email=?, phone=?,address=? WHERE userName=?";
-    private static final String CHECK_PASSWORD = "SELECT Password FROM Account WHERE UserName = ? AND Password = ?";
+    private static final String CHANGE_PASSWORD = "UPDATE Account "
+            + "SET password=? WHERE userName=?";
+    private static final String UPDATE_ACCOUNT = "UPDATE Account "
+            + "SET fullName=?,email=?, phone=?,address=? WHERE userName=?";
+    private static final String CHECK_PASSWORD = "SELECT Password "
+            + "FROM Account WHERE UserName = ? AND Password = ?";
     
-    public List<Account> listAll() {
-        List<Account> list = null;
+    public List<UserDTO> listAll() {
+        List<UserDTO> list = null;
         DBUtil db = new DBUtil();
         try {
             list = new ArrayList<>();
@@ -56,13 +61,14 @@ public class AccountDAO {
                 int accountId = rs.getInt(1);
                 String username = rs.getString(2);
                 String fullname = rs.getString(3);
-                String pass = rs.getString(4);
-                boolean status = rs.getBoolean(5);
-                String phone = rs.getString(6);
-                String address= rs.getString(7);
-                int role = rs.getInt(8);
-                Account act = new Account(accountId, username,
-                        fullname, pass,status,phone,address,role);
+                String email = rs.getString(4);
+                String pass = rs.getString(5);
+                boolean status = rs.getBoolean(6);
+                String phone = rs.getString(7);
+                String address= rs.getString(8);
+                String role = rs.getString("RoleName");
+                UserDTO act = new UserDTO(accountId, username,
+                        fullname,email, pass,status,phone ,address ,role);
                 list.add(act);
             }
             con.close();

@@ -52,13 +52,11 @@ public class LoginController extends HttpServlet {
                     HttpSession session = request.getSession();
                     session.setAttribute("LOGIN_USER", user);
                     if(AD.equals(roleName)){
-                        url = ADMIN_PAGE;
+                        url = "AdminController";
                     } else if (US.equals(roleName)){
-                        url = USER_PAGE;
-                        
+                        url = USER_PAGE;                        
                     } else if (SELLER.equals(roleName)){
-                        url = SELL_PAGE;
-                        
+                        url = SELL_PAGE;                        
                     }   else {
                         request.setAttribute("ERROR", "Your role is not support");
                     }
