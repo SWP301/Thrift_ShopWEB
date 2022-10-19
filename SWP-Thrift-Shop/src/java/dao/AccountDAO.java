@@ -41,7 +41,7 @@ public class AccountDAO {
     private static final String INSERT = "INSERT INTO Account(UserName, FullName, Email,Password, Status, Phone, Address, RoleID) \n" +
                                         "VALUES(?,?,?,?,?,?,?,?)";
     private static final String CHANGE_PASSWORD = "UPDATE Account SET password=? WHERE userName=?";
-    private static final String UPDATE_ACCOUNT = "UPDATE Account SET fullName=?,phone=?,address=? WHERE userName=?";
+    private static final String UPDATE_ACCOUNT = "UPDATE Account SET fullName=?,email=?, phone=?,address=? WHERE userName=?";
     private static final String CHECK_PASSWORD = "SELECT Password FROM Account WHERE UserName = ? AND Password = ?";
     
     public List<Account> listAll() {
@@ -290,9 +290,10 @@ public class AccountDAO {
             if (conn != null) {
                 psm = conn.prepareStatement(UPDATE_ACCOUNT);
                 psm.setString(1, user.getFullName());
-                psm.setString(2, user.getPhone());
-                psm.setString(3, user.getAddress());
-                psm.setString(4, user.getUserName());
+                psm.setString(2, user.getEmail());
+                psm.setString(3, user.getPhone());
+                psm.setString(4, user.getAddress());
+                psm.setString(5, user.getUserName());
                 check = psm.executeUpdate() > 0 ? true : false;
             }
         } catch (Exception e) {

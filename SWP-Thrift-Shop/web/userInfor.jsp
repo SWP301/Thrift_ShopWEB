@@ -65,7 +65,7 @@
                                             <p class="mb-0">Email</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input type="text" name="fullName" value="${sessionScope.LOGIN_USER.email}" required="" class="text-muted mb-0 form-control form-control-sm border-0"/>
+                                            <input type="text" name="email" value="${sessionScope.LOGIN_USER.email}" required="" class="text-muted mb-0 form-control form-control-sm border-0"/>
                                         </div>
                                     </div>
                                     <hr>

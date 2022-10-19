@@ -189,6 +189,9 @@ $(document).ready(function(){
 
 </head>
 <body>
+        <c:if test="${sessionScope.LOGIN_USER == null || sessionScope.LOGIN_USER.roleName ne 'Admin'}"> 
+            <c:redirect url="login.jsp"></c:redirect>
+        </c:if>
 <div class="container">
     <div class="table-responsive">
         <div class="table-wrapper">

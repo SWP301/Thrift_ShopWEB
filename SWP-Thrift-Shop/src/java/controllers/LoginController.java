@@ -21,7 +21,7 @@ import models.UserDTO;
  */
 public class LoginController extends HttpServlet {
     private static final String ERROR = "login.jsp";
-    private static final String ADMIN_PAGE = "admin.jsp";
+    private static final String ADMIN_PAGE = "adminpage.jsp";
     private static final String USER_PAGE = "user.jsp";
     private static final String SELL_PAGE = "seller.jsp";
     private static final String AD = "Admin";
