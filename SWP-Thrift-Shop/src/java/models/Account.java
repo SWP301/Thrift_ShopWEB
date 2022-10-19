@@ -41,6 +41,14 @@ public class Account {
         this.address = address;
         this.roleNum=role;
     }
+
+    public int getRoleNum() {
+        return roleNum;
+    }
+
+    public void setRoleNum(int roleNum) {
+        this.roleNum = roleNum;
+    }
     //use for update
     public Account(String userName, String fullName, String password, String phone, String address) {
         this.userName = userName;

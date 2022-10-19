@@ -20,6 +20,8 @@ import javax.servlet.http.HttpSession;
 import models.Account;
 import models.Category;
 import models.Product;
+import models.UserDTO;
+import org.apache.catalina.Session;
 
 /**
  *
@@ -77,12 +79,10 @@ public class AdminController extends HttpServlet {
 //            request.getRequestDispatcher(url).forward(request, response);
 //        }    
 
-
         AccountDAO acd = new AccountDAO();        
-        List<Account> listAccount = acd.listAll();
+        List<UserDTO> listAccount = acd.listAll();
         request.setAttribute("listAccount", listAccount);
-        request.getRequestDispatcher("adminpage.jsp").forward(request, response);
-                       
+        request.getRequestDispatcher("adminpage.jsp").forward(request, response);                       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -180,6 +180,71 @@
         margin-top: 10px;
         font-size: 13px;
     }
+    .dropbtn {
+        background-color: #111;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown a:hover {
+        background-color: #ddd;
+      }
+
+      .show {
+        display: block;
+      }
+      .sidebar {
+        height: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 16px;
+        padding-right: 5px;
+      }
+
+      .sidebar a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #818181;
+        display: block;
+      }
+      .sidebar a:hover{
+        color: #111;
+      }
+      .sidebar_up a:hover {
+        color: #f1f1f1;
+      }
+      .dropdown button{
+        font-size: 20px;
+      }
 </style>
 <script>
 $(document).ready(function(){
@@ -189,10 +254,34 @@ $(document).ready(function(){
 
 </head>
 <body>
-        <c:if test="${sessionScope.LOGIN_USER == null || sessionScope.LOGIN_USER.roleName ne 'Admin'}"> 
+    
+<%--        <c:if test="${sessionScope.LOGIN_USER == null || sessionScope.LOGIN_USER.roleName ne 'Admin'}"> 
             <c:redirect url="login.jsp"></c:redirect>
-        </c:if>
+        </c:if> --%>
 <div class="container">
+    <div class="row">
+      <div class="col-sm-1">
+        <div class="sidebar">
+          <div class="sidebar_up">
+            <a href="admin.html"><i class="fa-solid fa-users"></i> User</a>
+            <a href="productlist.html"
+              ><i class="fa-sharp fa-solid fa-list"></i> Product</a
+            >
+            <a href="orderlist.html"
+              ><i class="fa-solid fa-calendar-days"></i> Order</a
+            >
+          </div>
+          
+          <hr/>
+          <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn"> <i class="fa-solid fa-user"></i>  Admin</button>
+            <div  id="myDropdown" class="dropdown-content">
+              <a style="font-size: 15px;" href="#profile"><i class="fa-solid fa-gear"></i> Profile</a>
+              <a style="font-size: 15px;" href="#signout"><i class="fa-solid fa-right-from-bracket"></i> Sign out</a>
+            </div>
+          </div>
+        </div>
+      </div>
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
@@ -214,7 +303,8 @@ $(document).ready(function(){
                     <tr>
                         <th>No</th>                       
                         <th>Username</th>
-                        <th>Full Name</th>						                      
+                        <th>Full Name</th>
+                        <th>Email </th>
                         <th>Pass </th>
                         <th>Status</th>
                         <th>Phone </th> 
@@ -228,12 +318,13 @@ $(document).ready(function(){
                     <tr>
                         <td>${counter.count}</td>
                         <td>${acount.userName}</td>
-                        <td>${acount.fullName}</td>                        
+                        <td>${acount.fullName}</td>
+                        <td>${acount.email}</td>
                         <td>******</td>
                         <th>${acount.status}</th>
                         <th>${acount.phone} </th> 
                         <th>${acount.address}</th>
-                        <th>${acount.role}</th> 
+                        <th>${acount.roleName}</th> 
                         <td class="text-success">Active</td>
                         <td>                          
                             <!-- <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-check"></i></a> -->
