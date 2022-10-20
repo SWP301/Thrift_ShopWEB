@@ -51,10 +51,7 @@ public class UpdateProfileController extends HttpServlet {
                     UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
                     if (userName.equals(loginUser.getUserName())) {
                         loginUser.setFullName(fullName);
-<<<<<<< HEAD
-=======
                         loginUser.setEmail(email);
->>>>>>> 6df1a22f3b1d884ba542288250588b156575aef2
                         loginUser.setPhone(phone);
                         loginUser.setAddress(address);
                         session.setAttribute("LOGIN_USER", loginUser);

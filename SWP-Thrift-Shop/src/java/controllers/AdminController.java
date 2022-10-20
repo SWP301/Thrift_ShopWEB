@@ -44,7 +44,8 @@ public class AdminController extends HttpServlet {
     private static final String USER_PAGE = "homepage.jsp";
     private static final String AD = "AD";
     private static final String ADMIN_PAGE = "adminpage.jsp";
-    
+    private static final String SETTING ="Setting";
+    private static final String SETTING_PAGE ="profileManagement.jsp";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        response.setContentType("text/html;charset=UTF-8");
@@ -78,11 +79,15 @@ public class AdminController extends HttpServlet {
 //        }finally{
 //            request.getRequestDispatcher(url).forward(request, response);
 //        }    
-
+        String url = ADMIN_PAGE;
         AccountDAO acd = new AccountDAO();        
         List<UserDTO> listAccount = acd.listAll();
-        request.setAttribute("listAccount", listAccount);
-        request.getRequestDispatcher("adminpage.jsp").forward(request, response);                       
+        request.setAttribute("listAccount", listAccount);       
+        String action = request.getParameter("action"); 
+        if(SETTING.equals(action)){
+            url = SETTING_PAGE;
+        }
+        request.getRequestDispatcher(url).forward(request, response);                       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -19,11 +19,8 @@ import javax.servlet.http.HttpSession;
  */
 public class LogoutController extends HttpServlet {
     private static final String ERROR = "login.jsp";
-<<<<<<< HEAD
     private static final String SUCCESS = "login.jsp";
-=======
-    private static final String SUCCESS = "index.jsp";
->>>>>>> 6df1a22f3b1d884ba542288250588b156575aef2
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

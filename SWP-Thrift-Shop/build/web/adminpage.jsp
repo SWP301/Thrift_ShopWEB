@@ -16,9 +16,10 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
-
+<i class="bi-class-name"></i>
 
 <style>
+    
     body {
         color: #566787;
 		background: #f5f5f5;
@@ -314,22 +315,26 @@ $(document).ready(function(){
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="acount" items="${listAccount}" varStatus="counter">    
+                
+                <c:forEach var="acount" items="${listAccount}" varStatus="counter">
+                <form action="AdminController" method="POST">
                     <tr>
                         <td>${counter.count}</td>
                         <td>${acount.userName}</td>
                         <td>${acount.fullName}</td>
                         <td>${acount.email}</td>
                         <td>******</td>
-                        <th>${acount.status}</th>
+                        <td <c:if test="${acount.status==false}"> class="text-danger"</c:if>  class="text-success"> ${acount.status}</th>
                         <th>${acount.phone} </th> 
                         <th>${acount.address}</th>
                         <th>${acount.roleName}</th> 
-                        <td class="text-success">Active</td>
                         <td>                          
-                            <!-- <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-check"></i></a> -->
+                            <input class="btn btn-primary" type="submit" name="action" value="Setting"/>
+                            <input type="hidden" name="userName" value="${acount.userName}"/>
+                            <input type="hidden" name="email" value="${acount.email}"/>
                         </td> 
                     </tr>
+                </form>  
                 </c:forEach>             
                 </tbody>
             </table>

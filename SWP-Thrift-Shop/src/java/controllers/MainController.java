@@ -34,6 +34,9 @@ public class MainController extends HttpServlet {
     private static final String CHANGE_CONTROLLER = "ChangePasswordController";
     private static final String UPDATE_PROFILE = "Update";
     private static final String UPDATE_PROFILE_CONTROLLER = "UpdateProfileController";
+    
+    private static final String SETTING_PROFILE = "Setting"; // use for admin 
+    private static final String SETTING_PROFILE_CONTROLLER = "SettingProfileController";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -67,6 +70,8 @@ public class MainController extends HttpServlet {
                 url = CHANGE_CONTROLLER;
             } else if(action.equals(UPDATE_PROFILE)) {
                 url = UPDATE_PROFILE_CONTROLLER;
+            }else if(action.equals(SETTING_PROFILE)) {
+                url = SETTING_PROFILE_CONTROLLER;
             }
         } catch (Exception e) {
             log("Error at MainController " + e.toString());

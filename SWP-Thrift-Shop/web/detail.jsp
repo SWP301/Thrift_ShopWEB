@@ -53,8 +53,6 @@
                                 </span>
                             </div>
                         </div>
-<<<<<<< HEAD
-=======
                         <a href="" class="nav-item nav-link">Shirts</a>
                         <a href="" class="nav-item nav-link">Jeans</a>
                         <a href="" class="nav-item nav-link">Swimwear</a>
@@ -182,7 +180,6 @@
                             <input type="radio" class="custom-control-input" id="size-5" name="size">
                             <label class="custom-control-label" for="size-5">XL</label>
                         </div>
->>>>>>> 6df1a22f3b1d884ba542288250588b156575aef2
                     </form>
                 </div>
             </div>
