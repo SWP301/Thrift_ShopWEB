@@ -24,7 +24,7 @@
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h5 class="text-warning">Amount: $650</h5>
+                                <h5 class="text-warning">Amount: $${sessionScope.AMOUNT.amount}</h5>
                             </div>
 
                             <div class="col-sm-6 d-flex justify-content-end">                               

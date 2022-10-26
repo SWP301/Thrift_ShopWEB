@@ -10,7 +10,7 @@ package models;
  * @author Admiz
  */
 public class UserDTO {
-    private int ID;
+    private String ID;
     private String userName;
     private String fullName;
     private String email;
@@ -23,7 +23,7 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(int ID, String userName, String fullName, String email, String password, boolean status, String phone, String address, String roleName) {
+    public UserDTO(String ID, String userName, String fullName, String email, String password, boolean status, String phone, String address, String roleName) {
         this.ID = ID;
         this.userName = userName;
         this.fullName = fullName;
@@ -35,11 +35,11 @@ public class UserDTO {
         this.roleName = roleName;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 

@@ -55,7 +55,7 @@
                                 ${REGISTER_SUCCESS}
                                 <div class="d-flex justify-content-center text-center mt-4 pt-1">
 
-                                    <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:8084/SellAndBuyShop_Test/LoginGoogleHandler&response_type=code
+                                    <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:8084/SWP-Thrift-Shop/LoginGoogleHandler&response_type=code
                                        &client_id=1059034923393-72jhioe1uhjngg0ojhu2lm0ti9llq1k2.apps.googleusercontent.com&approval_prompt=force" class="text-white"><i class="fab fa-google fa-lg"></i></a>
                                 </div>
 

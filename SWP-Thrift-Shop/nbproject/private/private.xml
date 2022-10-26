@@ -3,52 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/Wallet.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/css/style.css</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/Role.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/homepage.jsp</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/detail.jsp</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/contact.html</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/checkout.html</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/Product.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/controllers/MainController.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/controllers/AdminController.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/ProductAttribute.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/controllers/LogoutController.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/Image.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/profileManagement.jsp</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/controllers/LoginController.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/Order.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/controllers/ChangePasswordController.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/utils/DBUtil.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/Payment.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/register.jsp</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/Account.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/css/style.min.css</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/dao/AccountDAO.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/userInfor.jsp</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/controllers/SettingProfileController.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/controllers/LoginGoogleHandler.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/controllers/HomeController.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/UserDTO.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/dao/CategoryDAO.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/adminpage.jsp</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/controllers/DetailController.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/shop.jsp</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/user.jsp</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/nbproject/build-impl.xml~</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/Attribute.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/controllers/UpdateProfileController.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/Category.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/models/Transaction.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/cart.html</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/controllers/CategoryController.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/login.jsp</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/index.jsp</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/WEB-INF/web.xml</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/addmoney.jsp</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/src/java/dao/ProductDAO.java</file>
-            <file>file:/D:/Project/SWP301/ThirftShop/SWP-Thrift-Shop/web/error.jsp</file>
+            <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/src/java/models/UserDTO.java</file>
+            <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/web/addmoney.jsp</file>
+            <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/src/java/controllers/AddMoneyController.java</file>
+            <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/src/java/dao/AccountDAO.java</file>
+            <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/web/login.jsp</file>
+            <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/src/java/controllers/LoginController.java</file>
+            <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/src/java/models/Wallet.java</file>
+            <file>file:/C:/Users/Admiz/Desktop/SWP391/SWP_ShopThierf/SWP-Thrift-Shop/web/wallet.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -12,16 +12,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.UserDTO;
-import models.UserError;
+import javax.servlet.http.HttpSession;
+import models.Wallet;
 
 /**
  *
  * @author Admiz
  */
-public class RegisterController extends HttpServlet {
-    private static final String ERROR = "register.jsp";
-    private static final String SUCCESS = "login.jsp";
+public class AddMoneyController extends HttpServlet {
+    private static final String ERROR = "addmoney.jsp";
+    private static final String SUCCESS = "addmoney.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,56 +36,39 @@ public class RegisterController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-             String url = ERROR;
-            UserError userError = new UserError();
-            boolean checkValidation = true;
-            AccountDAO dao = new AccountDAO();
-            
+            String url = ERROR;
             try {
-                String userName = request.getParameter("userName");
-                String fullName = request.getParameter("fullName");
-                String email = request.getParameter("email");
-                String password = request.getParameter("password");
-                String confirm = request.getParameter("confirm");
-                String phone = request.getParameter("phone");
-                String address = request.getParameter("address");
-            
-//            check length
-                if (userName.length() > 50 || userName.length() < 2) {
-                    checkValidation = false;
-                    userError.setUserNameError("UserID must in [2,50] word");
-                }
-//            check duplicate code
-                boolean checkDuplicate = dao.checkUserName(userName);
-                if (checkDuplicate) {
-                    checkValidation = false;
-                    userError.setUserNameError("UserName is replace");
-                }
-//            check fullName length
-                if (fullName.length() > 100 || fullName.length() < 5) {
-                    checkValidation = false;
-                    userError.setFullNameError("Full Name must in [5,100]");
-                }
-//            check password-confirm
-                if (!password.equals(confirm)) {
-                    checkValidation = false;
-                    userError.setConfirmError("Two password must be similar");
-                }
-                if (checkValidation) {
-                    boolean checkInsert = dao.insert(new UserDTO("", userName, fullName, email, password, true, phone, address, "user") );
-                    if (checkInsert) {
+                String amount = request.getParameter("addmoney");
+                String ID =  request.getParameter("userID");
+                HttpSession session = request.getSession();
+                AccountDAO dao = new AccountDAO();
+                boolean checkWallet = dao.CheckWallet(ID);
+                if(checkWallet) {
+                    boolean addMoney = dao.AddMoney(amount, ID);
+                    Wallet wallet = dao.TakeAmount(ID);
+                    session.setAttribute("AMOUNT", wallet);
+                    if(addMoney) {
                         url = SUCCESS;
-                        request.setAttribute("REGISTER_SUCCESS", "Register successful");
+                        session.setAttribute("SUCCESS", "Add money successful");
+                    } else {
+                    session.setAttribute("ERROR", "Cannot add money");
                     }
                 } else {
-                    request.setAttribute("USER_ERROR", userError);
-                }
+                    boolean createWallet = dao.CreateWallet(ID);
+                    if(createWallet) {
+                        boolean addMoney = dao.AddMoney(amount, ID);
+                        if(addMoney) {
+                            Wallet wallet = dao.TakeAmount(ID);
+                            url = SUCCESS;
+                            session.setAttribute("AMOUNT", wallet);
+                            session.setAttribute("SUCCESS", "Add money successful");
+                        } else {
+                            session.setAttribute("ERROR", "Cannot add money");
+                        }
+                    }
+                }  
             } catch (Exception e) {
-                log("Error at CreateController :" + e.toString());
-                if (e.toString().contains("duplicate")) {
-                    userError.setUserNameError("Duplicate userID!!!!!!!!!");
-                    request.setAttribute("USER_ERROR", userError);
-            }
+                log("Error at LoginController, " + e.toString());
             } finally {
                 request.getRequestDispatcher(url).forward(request, response);
             }

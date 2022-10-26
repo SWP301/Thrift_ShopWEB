@@ -12,15 +12,15 @@ package models;
 public class Wallet {
     private int walletID;
     private float amount;
-    Account user = new Account();
+    private String userID;
 
     public Wallet() {
     }
 
-    public Wallet(int walletID, int amount, Account user) {
+    public Wallet(int walletID, float amount, String userID) {
         this.walletID = walletID;
         this.amount = amount;
-        this.user = user;
+        this.userID = userID;
     }
 
     public int getWalletID() {
@@ -39,13 +39,16 @@ public class Wallet {
         this.amount = amount;
     }
 
-    public Account getUser() {
-        return user;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUser(Account user) {
-        this.user = user;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
+
+    
+
     
     
     

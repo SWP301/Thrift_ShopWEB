@@ -24,7 +24,7 @@
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h5 class="text-warning">Amount: $650</h5>
+                                <h5 class="text-warning">Amount: $${sessionScope.AMOUNT.amount}</h5>
                             </div>
 
                     </nav>
@@ -35,10 +35,12 @@
                     <div class="card mb-2">
                         <div class="card-body">
                             <h4>Deposit Money in Wallet</h4>
-                            <form class="mt-3">
+                            <form class="mt-3" action="MainController">
                                 <div class="d-flex justify-content-center mb-3">
-                                    <h3>$</h3><input style="font-size: 20px;" class="mb-0 border-0" type="number"
-                                        required>
+                                    <h3>$</h3><input  style="font-size: 20px;" name="addmoney" class="mb-0 border-0" type="number" required>
+                                    <input  name="userID" value="${sessionScope.LOGIN_USER.ID}" type="hidden"/>          
+                                    ${sessionScope.ERROR}
+                                    ${sessionScope.SUCCESS}
                                 </div>
                                 <h5>Payment method</h5>
                                 <div class="mt-3">
@@ -55,7 +57,7 @@
                                         <a class="btn btn-outline-danger" href="wallet.jsp">Cancel</a>
                                     </div>
                                     <div class="col-sm-6 d-grid">
-                                        <a class="btn btn-success " href="MainController?=addmoney">Submit</a>
+                                        <input type="submit" name="action" value="Add Money" class="btn btn-success"   />
                                     </div>
                             </form>
                         </div>

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import models.UserDTO;
+import models.Wallet;
 
 /**
  *
@@ -47,10 +48,12 @@ public class LoginController extends HttpServlet {
                 String password = request.getParameter("password");
                 AccountDAO dao = new AccountDAO();
                 UserDTO user = dao.checkLoginV2(username, password);
+                Wallet wallet = dao.TakeAmount(user.getID());
                 if(user != null) {
                     String roleName = user.getRoleName();
                     HttpSession session = request.getSession();
                     session.setAttribute("LOGIN_USER", user);
+                    session.setAttribute("AMOUNT", wallet);
                     if(AD.equals(roleName)){
                         url = "AdminController";
                     } else if (US.equals(roleName)){

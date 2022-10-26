@@ -7,6 +7,7 @@ package controllers;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import models.Constants;
+import models.UserDTO;
 import models.UserGoogleDTO;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Form;
@@ -27,8 +29,9 @@ import org.apache.http.client.fluent.Request;
 public class LoginGoogleHandler extends HttpServlet {
     private static final String ERROR = "login.jsp";
     private static final String ADMIN_PAGE = "admin.jsp";
-    private static final String USER_PAGE = "user.jsp";
+    private static final String USER_PAGE = "homepage.jsp";
     private static final String SELL_PAGE = "seller.jsp";
+    private static final String REGISTER_PAGE = "register.jsp";
     private static final String AD = "Admin";
     private static final String US = "User";
     private static final String SELLER = "Seller";
@@ -48,14 +51,28 @@ public class LoginGoogleHandler extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String url = ERROR;
             try {
+                AccountDAO dao = new AccountDAO();
                 String code = request.getParameter("code");
                 String accessToken = getToken(code);
                 UserGoogleDTO user = getUserInfo(accessToken);
+                UserDTO us = dao.checkEmail(user.getEmail());
                 HttpSession session = request.getSession();
-                if(user != null) {
-                    url = USER_PAGE;
-                    session.setAttribute("LOGIN_USER", user);
-                    
+                session.setAttribute("EMAIL", us.getEmail());
+                if(us != null) {
+                    String roleName = us.getRoleName();
+                    session.setAttribute("LOGIN_USER", us);
+                    if(AD.equals(roleName)){
+                        url = "AdminController";
+                    } else if (US.equals(roleName)){
+                        url = USER_PAGE;                        
+                    } else if (SELLER.equals(roleName)){
+                        url = SELL_PAGE;                        
+                    }   else {
+                        request.setAttribute("ERROR", "Your role is not support");
+                    }
+                } else {
+                    url = REGISTER_PAGE;
+                    request.setAttribute("ERROR", "You must register before login");
                 }
             } catch (Exception e) {
                 log("Error at UpdateController:" + e.toString());

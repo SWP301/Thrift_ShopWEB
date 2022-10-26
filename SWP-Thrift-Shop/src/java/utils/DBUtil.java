@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 
 public class DBUtil {
-    private String PASSWORD = "123456";
+    private String PASSWORD = "12345";
     public Connection getConnection() throws Exception{
         String url = "jdbc:sqlserver://localhost;databaseName=SWPShop;user=sa;password="+PASSWORD;
         Connection con = null;
