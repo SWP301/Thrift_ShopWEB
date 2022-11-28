@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Image {
     private int imageID;
+    private int productID;
     private String imageLink;
     Product product = new Product();
 
@@ -24,6 +25,20 @@ public class Image {
         this.imageLink = imageLink;
         this.product = product;
     }
+
+    public Image(int productID, String imageLink) {
+        this.productID = productID;
+        this.imageLink = imageLink;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
+    
 
     public int getImageID() {
         return imageID;
@@ -47,6 +62,11 @@ public class Image {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    @Override
+    public String toString() {
+        return "Image{" + "imageID=" + imageID + ", productID=" + productID + ", imageLink=" + imageLink + ", product=" + product + '}';
     }
     
     

@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import dao.AccountDAO;
 import dao.CategoryDAO;
 import dao.ProductDAO;
 import java.io.IOException;
@@ -14,8 +15,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import models.Category;
 import models.Product;
+import models.UserDTO;
 
 /**
  *
@@ -30,6 +33,7 @@ public class DetailController extends HttpServlet {
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
+     * 00*9----------03
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -38,13 +42,21 @@ public class DetailController extends HttpServlet {
         String pid = request.getParameter("pid");
         ProductDAO pd = new ProductDAO();
         CategoryDAO cd = new CategoryDAO();
+        AccountDAO d = new AccountDAO();
+        HttpSession session = request.getSession();
         Product p = pd.getProductbyID(pid);
+        String categoryID = Integer.toString(p.getCategoryID());
         List<Category> listCategory = cd.listAllCategory();
-        List<Product> listNew = pd.listNew();
-        List<Product> listRelated = pd.getRelatedProduct(pid);
+        List<Product> listRelated = pd.getRelatedProduct(categoryID,p.getProductID());
+        int userID = d.getAccountFromProduct(pid);
+        int numberofOrder = d.noOfOrder(userID);
+        int successOrderSold = d.successOrderSold(userID);
+        Product product = d.latestPostedFeed(userID);
+        session.setAttribute("numberofOrder", numberofOrder);
+        session.setAttribute("successOrderSold", successOrderSold);
+        session.setAttribute("product", product);
         request.setAttribute("detail", p);
         request.setAttribute("listCategory", listCategory);
-        request.setAttribute("listNew", listNew);
         request.setAttribute("listRelated", listRelated);
         request.getRequestDispatcher("detail.jsp").forward(request, response);
     }

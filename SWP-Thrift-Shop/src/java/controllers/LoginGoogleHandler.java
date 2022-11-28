@@ -10,14 +10,17 @@ import com.google.gson.JsonObject;
 import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import models.Constants;
+import models.Transaction;
 import models.UserDTO;
 import models.UserGoogleDTO;
+import models.Wallet;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Form;
 import org.apache.http.client.fluent.Request;
@@ -46,8 +49,7 @@ public class LoginGoogleHandler extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        System.out.println(request.getParameter("code"));
             /* TODO output your page here. You may use following sample code. */
             String url = ERROR;
             try {
@@ -56,11 +58,15 @@ public class LoginGoogleHandler extends HttpServlet {
                 String accessToken = getToken(code);
                 UserGoogleDTO user = getUserInfo(accessToken);
                 UserDTO us = dao.checkEmail(user.getEmail());
+                Wallet wallet = dao.TakeAmount(us.getID());
+                List<Transaction> transaction = dao.takeTransaction(us.getID());
                 HttpSession session = request.getSession();
                 session.setAttribute("EMAIL", us.getEmail());
                 if(us != null) {
                     String roleName = us.getRoleName();
                     session.setAttribute("LOGIN_USER", us);
+                    session.setAttribute("AMOUNT", wallet);
+                    session.setAttribute("TRANSACTION", transaction);
                     if(AD.equals(roleName)){
                         url = "AdminController";
                     } else if (US.equals(roleName)){
@@ -79,7 +85,7 @@ public class LoginGoogleHandler extends HttpServlet {
             } finally {
                 request.getRequestDispatcher(url).forward(request, response);
             } 
-        }
+        
     }
     
     public static String getToken(String code) throws ClientProtocolException, IOException {
@@ -99,7 +105,7 @@ public class LoginGoogleHandler extends HttpServlet {
     public static UserGoogleDTO getUserInfo(final String accessToken) throws ClientProtocolException, IOException {
 		String link = Constants.GOOGLE_LINK_GET_USER_INFO + accessToken;
 		String response = Request.Get(link).execute().returnContent().asString();
-
+                
 		UserGoogleDTO googlePojo = new Gson().fromJson(response, UserGoogleDTO.class);
 
 		return googlePojo;

@@ -11,6 +11,7 @@
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ThriftShop</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
@@ -29,21 +30,21 @@
                                 <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
 
                                 <form action="MainController" method="POST">
-                                    <div class="form-outline form-white mb-4 mt-4">
+<!--                                    <div class="form-outline form-white mb-4 mt-4">
 
                                         <input type="text" name="userName" required="" class="form-control form-control-lg" placeholder="Username" />
                                         ${requestScope.USER_ERROR.userNameError}
                                     </div>
-                                    <div class="form-outline form-white mb-4">
+-->                                 <div class="form-outline form-white mb-4">
 
                                         <input type="text" name="fullName" required="" class="form-control form-control-lg" placeholder="Full Name" />
                                         ${requestScope.USER_ERROR.fullNameError}
                                     </div>
                                     <div class="form-outline form-white mb-4">
 
-                                        <input type="email" name="email" required="" class="form-control form-control-lg" placeholder="Email" />
+                                        <input type="email" name="email" required="" class="form-control form-control-lg" placeholder="${sessionScope.EMAIL}" value="${sessionScope.EMAIL}" />
                                     </div>
-                                    <div class="form-outline form-white mb-4">
+<!--                                    <div class="form-outline form-white mb-4">
 
                                         <input type="password" name="password" required="" class="form-control form-control-lg" placeholder="Password" />
                                     </div>
@@ -51,7 +52,7 @@
 
                                         <input type="password" name="confirm" required="" class="form-control form-control-lg" placeholder="Confirm" />
                                         ${requestScope.USER_ERROR.confirmError}
-                                    </div>
+                                    </div>-->
                                     <div class="form-outline form-white mb-4">
 
                                         <input type="number" name="phone" class="form-control form-control-lg" placeholder="Phone"/>

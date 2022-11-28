@@ -8,4 +8,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:url value="" var="context"/>
 <!DOCTYPE html>
-<jsp:forward page="/home"/>
+<jsp:forward page="/MainController?action=Home"/>

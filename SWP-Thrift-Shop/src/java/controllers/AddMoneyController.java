@@ -17,20 +17,13 @@ import models.Wallet;
 
 /**
  *
- * @author Admiz
+ * @author Le Nguyen Nhat Minh
  */
 public class AddMoneyController extends HttpServlet {
+
     private static final String ERROR = "addmoney.jsp";
-    private static final String SUCCESS = "addmoney.jsp";
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    private static final String SUCCESS = "CreateTransactionController";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -38,35 +31,35 @@ public class AddMoneyController extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String url = ERROR;
             try {
-                String amount = request.getParameter("addmoney");
-                String ID =  request.getParameter("userID");
+                float amount = Float.parseFloat(request.getParameter("amount"));
+                String ID = request.getParameter("userID");
                 HttpSession session = request.getSession();
                 AccountDAO dao = new AccountDAO();
                 boolean checkWallet = dao.CheckWallet(ID);
-                if(checkWallet) {
+                if (checkWallet) {
                     boolean addMoney = dao.AddMoney(amount, ID);
                     Wallet wallet = dao.TakeAmount(ID);
                     session.setAttribute("AMOUNT", wallet);
-                    if(addMoney) {
-                        url = SUCCESS;
+                    if (addMoney) {                        
                         session.setAttribute("SUCCESS", "Add money successful");
+                        url = SUCCESS;
                     } else {
-                    session.setAttribute("ERROR", "Cannot add money");
+                        session.setAttribute("ERROR", "Cannot add money");
                     }
                 } else {
                     boolean createWallet = dao.CreateWallet(ID);
-                    if(createWallet) {
+                    if (createWallet) {
                         boolean addMoney = dao.AddMoney(amount, ID);
-                        if(addMoney) {
+                        if (addMoney) {
                             Wallet wallet = dao.TakeAmount(ID);
-                            url = SUCCESS;
                             session.setAttribute("AMOUNT", wallet);
                             session.setAttribute("SUCCESS", "Add money successful");
+                            url = SUCCESS;
                         } else {
                             session.setAttribute("ERROR", "Cannot add money");
                         }
                     }
-                }  
+                }
             } catch (Exception e) {
                 log("Error at LoginController, " + e.toString());
             } finally {

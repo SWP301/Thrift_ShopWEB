@@ -126,4 +126,10 @@ public class Account {
         this.role = role;
     }
 
+    @Override
+    public String toString() {
+        return "Account{" + "accountID=" + accountID + ", userName=" + userName + ", fullName=" + fullName + ", password=" + password + ", status=" + status + ", phone=" + phone + ", address=" + address + ", roleNum=" + roleNum + ", role=" + role + '}';
+    }
+    
+
 }

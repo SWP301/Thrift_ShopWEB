@@ -10,7 +10,10 @@ import dao.CategoryDAO;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,56 +42,34 @@ public class AdminController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private static final String ERROR = "login.jsp";
-    private static final String US = "US";
-    private static final String USER_PAGE = "homepage.jsp";
-    private static final String AD = "AD";
-    private static final String ADMIN_PAGE = "adminpage.jsp";
-    private static final String SETTING ="Setting";
-    private static final String SETTING_PAGE ="profileManagement.jsp";
+        private static final String ADMIN_PAGE = "adminpage.jsp";
+    private static final String SETTING = "Setting";
+    private static final String SETTING_PAGE = "SettingProfileController";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        String url= ERROR;
-//        try {
-//            String userID = request.getParameter("userID");
-//            String password = request.getParameter("password");
-//            AccountDAO dao = new AccountDAO();
-//            Account loginUser = dao.checkLogin(userID, password);
-//            if(loginUser!=null){
-//               //phân quyền 
-//               HttpSession session = request.getSession();
-//               session.setAttribute("LOGIN_USER", loginUser);
-//               int roleID = loginUser.getRole().getRoleID();
-//               if(AD.equals(roleID)){
-//                   url=ADMIN_PAGE;
-//               } else if(US.equals(roleID)){
-//                   url=USER_PAGE;
-//               } else{
-//                   request.setCharacterEncoding("your role is not supported");
-//               }               
-//            }else{
-//                // không có user OR sai pass
-//                request.setAttribute("ERROR", "Incorrect userID or Password");
-//
-//            url = ADMIN_PAGE;
-//            
-//            }
-//        } catch (Exception e) {
-//            log("Error at LoginController :" + e.toString());
-//        }finally{
-//            request.getRequestDispatcher(url).forward(request, response);
-//        }    
+            throws ServletException, IOException, SQLException {  
         String url = ADMIN_PAGE;
-        AccountDAO acd = new AccountDAO();        
-        List<UserDTO> listAccount = acd.listAll();
-        request.setAttribute("listAccount", listAccount);       
-        String action = request.getParameter("action"); 
-        if(SETTING.equals(action)){
-            url = SETTING_PAGE;
+        try {
+            AccountDAO acd = new AccountDAO();
+            //GetAllAccount
+            List<UserDTO> listAccount = acd.listAll();
+            request.setAttribute("listAccount", listAccount);
+            String action = request.getParameter("action");
+            if (SETTING.equals(action)) {
+                url = SETTING_PAGE;
+                //GetParam
+                String email = request.getParameter("email");
+                //setRequest
+                UserDTO user = acd.getUserByEmail(email);
+                request.setAttribute("USER_PROFILE", user);
+            }
+        } catch (Exception e) {
+            log("Error at AdminController :" + e.toString());
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
         }
-        request.getRequestDispatcher(url).forward(request, response);                       
     }
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -102,7 +83,11 @@ public class AdminController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            try {
+                processRequest(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     /**
@@ -116,7 +101,11 @@ public class AdminController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            try {
+                processRequest(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     /**

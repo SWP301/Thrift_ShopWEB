@@ -40,12 +40,6 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
 
->>>>>>> 6df1a22f3b1d884ba542288250588b156575aef2
-    <body>
-        <c:if test="${sessionScope.LOGIN_USER == null || sessionScope.LOGIN_USER.roleName ne 'User'}"> 
-            <c:redirect url="login.jsp"></c:redirect>
-        </c:if> 
-<<<<<<< HEAD
         <h1>Welcome: ${sessionScope.LOGIN_USER.fullName}</h1></br>
         <a href="userInfor.jsp">User profile</a>
         <br>
@@ -55,8 +49,6 @@
         <a href="${logoutLink}">Logout</a>
         
     </body>
-    
-=======
         <!-- Topbar Start -->
         <div class="container-fluid">
             <div class="row bg-secondary py-2 px-xl-5">
@@ -399,6 +391,4 @@
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
     </body>
-
->>>>>>> 6df1a22f3b1d884ba542288250588b156575aef2
 </html>

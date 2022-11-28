@@ -45,7 +45,7 @@ public class UpdateProfileController extends HttpServlet {
                 String address = request.getParameter("address");
                 AccountDAO dao = new AccountDAO();
 
-                boolean check = dao.update(new UserDTO("", userName, fullName, email,"*****", true, phone, address, ""));
+                boolean check = dao.update(new UserDTO("", "", fullName, email,"*****", true, phone, address, ""));
                 if (check) {
                     HttpSession session = request.getSession();
                     UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");

@@ -5,6 +5,7 @@
  */
 package models;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 /**
@@ -13,20 +14,17 @@ import java.time.LocalDateTime;
  */
 public class Payment {
     private int paymentID;
-    private LocalDateTime paymentTime;
+    private Date paymentTime;
     private float amount;
     private String paymentType;
-    Order order = new Order();
+    private int orderID;
 
-    public Payment(int paymentID, LocalDateTime paymentTime, float amount, String paymentType, Order order) {
+    public Payment(int paymentID, Date paymentTime, float amount, String paymentType, int orderID) {
         this.paymentID = paymentID;
         this.paymentTime = paymentTime;
         this.amount = amount;
         this.paymentType = paymentType;
-        this.order = order;
-    }
-
-    public Payment() {
+        this.orderID = orderID;
     }
 
     public int getPaymentID() {
@@ -37,11 +35,11 @@ public class Payment {
         this.paymentID = paymentID;
     }
 
-    public LocalDateTime getPaymentTime() {
+    public Date getPaymentTime() {
         return paymentTime;
     }
 
-    public void setPaymentTime(LocalDateTime paymentTime) {
+    public void setPaymentTime(Date paymentTime) {
         this.paymentTime = paymentTime;
     }
 
@@ -61,13 +59,14 @@ public class Payment {
         this.paymentType = paymentType;
     }
 
-    public Order getOrder() {
-        return order;
+    public int getOrderID() {
+        return orderID;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
     }
     
     
+
 }

@@ -32,7 +32,7 @@ public class CategoryController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private static final String SUCCESS = "homepage.jsp";
+    private static final String SUCCESS = "shop.jsp";
     private static final String ERROR = "error.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -43,12 +43,10 @@ public class CategoryController extends HttpServlet {
             String categoryID = request.getParameter("categoryID");
             ProductDAO pd = new ProductDAO();
             CategoryDAO cd = new CategoryDAO();
-            List<Product> listProduct = pd.getProductByCID(categoryID);
+            List<Product> listShop = pd.getProductByCID(categoryID);
             List<Category> listCategory = cd.listAllCategory();
-            List<Product> listNew = pd.listNew();
             request.setAttribute("listCategory", listCategory);
-            request.setAttribute("listProduct", listProduct);
-            request.setAttribute("listNew", listNew);
+            request.setAttribute("listShop", listShop);
             request.setAttribute("tag", categoryID);
             url = SUCCESS;
 

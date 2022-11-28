@@ -41,7 +41,9 @@
 *::after {
   box-sizing: border-box;
 }
-
+a.active{
+    font-weight: bolder;
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -7459,6 +7461,10 @@ button.bg-dark:focus {
 .ml-5,
 .mx-5 {
   margin-left: 3rem !important;
+}
+.mx-8{
+     margin-left: 7rem !important;
+     margin-right: 7rem !important;
 }
 
 .p-0 {

@@ -8,11 +8,13 @@ package controllers;
 import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import models.Transaction;
 import models.UserDTO;
 import models.Wallet;
 
@@ -49,17 +51,21 @@ public class LoginController extends HttpServlet {
                 AccountDAO dao = new AccountDAO();
                 UserDTO user = dao.checkLoginV2(username, password);
                 Wallet wallet = dao.TakeAmount(user.getID());
+                List<Transaction> transaction = dao.takeTransaction(user.getID());
                 if(user != null) {
                     String roleName = user.getRoleName();
                     HttpSession session = request.getSession();
                     session.setAttribute("LOGIN_USER", user);
                     session.setAttribute("AMOUNT", wallet);
+                    session.setAttribute("TRANSACTION", transaction);
                     if(AD.equals(roleName)){
                         url = "AdminController";
                     } else if (US.equals(roleName)){
-                        url = USER_PAGE;                        
+                        request.setAttribute("ERROR", "Sorry you can't login by account. Please use login by email");
+                        url = ERROR;                        
                     } else if (SELLER.equals(roleName)){
-                        url = SELL_PAGE;                        
+                        request.setAttribute("ERROR", "Sorry you can't login by account. Please use login by email");
+                        url = ERROR;                        
                     }   else {
                         request.setAttribute("ERROR", "Your role is not support");
                     }

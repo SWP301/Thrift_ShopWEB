@@ -45,20 +45,52 @@
         <servlet-class>controllers.LogoutController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>SearchController</servlet-name>
+        <servlet-class>controllers.SearchController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewController</servlet-name>
+        <servlet-class>controllers.ViewController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckoutController</servlet-name>
+        <servlet-class>controllers.CheckoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PostController</servlet-name>
+        <servlet-class>controllers.PostController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AddMoneyController</servlet-name>
         <servlet-class>controllers.AddMoneyController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShopController</servlet-name>
+        <servlet-class>controllers.ShopController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>controllers.UserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateTransactionController</servlet-name>
+        <servlet-class>controllers.CreateTransactionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterGoogleController</servlet-name>
+        <servlet-class>controllers.RegisterGoogleController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
-        <url-pattern>/home</url-pattern>
+        <url-pattern>/HomeController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
-        <url-pattern>/category</url-pattern>
+        <url-pattern>/CategoryController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DetailController</servlet-name>
-        <url-pattern>/detail</url-pattern>
+        <url-pattern>/DetailController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -93,8 +125,40 @@
         <url-pattern>/LogoutController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>SearchController</servlet-name>
+        <url-pattern>/SearchController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewController</servlet-name>
+        <url-pattern>/ViewController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/CheckoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PostController</servlet-name>
+        <url-pattern>/PostController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AddMoneyController</servlet-name>
         <url-pattern>/AddMoneyController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShopController</servlet-name>
+        <url-pattern>/ShopController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/UserController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateTransactionController</servlet-name>
+        <url-pattern>/CreateTransactionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterGoogleController</servlet-name>
+        <url-pattern>/RegisterGoogleController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

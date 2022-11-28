@@ -40,40 +40,16 @@ public class RegisterController extends HttpServlet {
             UserError userError = new UserError();
             boolean checkValidation = true;
             AccountDAO dao = new AccountDAO();
-            
             try {
-                String userName = request.getParameter("userName");
-                String fullName = request.getParameter("fullName");
+                String fullname = request.getParameter("fullName");
                 String email = request.getParameter("email");
-                String password = request.getParameter("password");
-                String confirm = request.getParameter("confirm");
                 String phone = request.getParameter("phone");
                 String address = request.getParameter("address");
-            
-//            check length
-                if (userName.length() > 50 || userName.length() < 2) {
-                    checkValidation = false;
-                    userError.setUserNameError("UserID must in [2,50] word");
-                }
-//            check duplicate code
-                boolean checkDuplicate = dao.checkUserName(userName);
-                if (checkDuplicate) {
-                    checkValidation = false;
-                    userError.setUserNameError("UserName is replace");
-                }
-//            check fullName length
-                if (fullName.length() > 100 || fullName.length() < 5) {
-                    checkValidation = false;
-                    userError.setFullNameError("Full Name must in [5,100]");
-                }
-//            check password-confirm
-                if (!password.equals(confirm)) {
-                    checkValidation = false;
-                    userError.setConfirmError("Two password must be similar");
-                }
                 if (checkValidation) {
-                    boolean checkInsert = dao.insert(new UserDTO("", userName, fullName, email, password, true, phone, address, "user") );
+                    boolean checkInsert = dao.insert(new UserDTO("", "", fullname, email, "", true, phone, address, "user") );
                     if (checkInsert) {
+                        String userID = dao.takeUserID();
+                        dao.CreateWallet(userID);
                         url = SUCCESS;
                         request.setAttribute("REGISTER_SUCCESS", "Register successful");
                     }

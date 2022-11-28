@@ -10,10 +10,11 @@
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ThriftShop</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
-        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
         <style>
             #form label {
@@ -76,9 +77,9 @@
         </script>
 
     </head>
-
-    <body style="background-color: #eee;">
-        <section>
+    <%@include  file="header.jsp" %>
+    <body >
+        <section style="background-color: #eee;">
             <div class="container py-5">
                 <div class="row">
                     <div class="col">
@@ -86,7 +87,7 @@
                             <div class="row">
                                 <form action="MainController">
                                     <div class="col-sm-12">
-                                        
+
                                         <input class="h5 bg-light border-0 form-control" name="userName" placeholder="${sessionScope.LOGIN_USER.userName}" value="${sessionScope.LOGIN_USER.userName}" readonly=""/>
                                     </div>
 
@@ -140,7 +141,7 @@
                             <div class="row"> 
                                 <div class="col-sm-6 d-grid mt-3">
 
-                                    <a href="profile.html" class="btn btn-outline-danger">Return</a>
+                                    <a href="userInfor.jsp" class="btn btn-outline-danger">Return</a>
                                 </div>
                                 <div class="col-sm-6 d-grid mt-3">
                                     <input type="submit" name="action" value="Change" class="btn btn-success"/>
@@ -152,3 +153,4 @@
                 </div>
         </section>
     </body>
+    <%@include  file="footer.jsp" %>
